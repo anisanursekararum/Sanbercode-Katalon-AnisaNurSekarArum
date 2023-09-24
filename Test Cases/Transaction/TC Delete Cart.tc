@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC Delete Cart</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>3e9c8d9b-b03f-4cf2-8452-f3fd41e13cf6</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>65edc9f5-1dbc-42d5-bd87-f300747f7b7c</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>true</defaultValue>
+      <description></description>
+      <id>65edc9f5-1dbc-42d5-bd87-f300747f7b7c</id>
+      <masked>false</masked>
+      <name>deleteButtonFound</name>
+   </variable>
+</TestCaseEntity>

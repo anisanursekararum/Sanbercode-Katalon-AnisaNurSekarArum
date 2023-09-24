@@ -33,13 +33,13 @@ WebUI.verifyElementVisible(findTestObject('Auth/inputSignupUsername'))
 
 WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
 
-def sourceData = findTestData('Data Files/Auth/SignUp')
+def sourceData = findTestData('Data Files/Auth/Signup')
 
 for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
 	
 	username = sourceData.getValue(1, rowNumber)
 	
-	password = sourceData.getValue(1, rowNumber)
+	password = sourceData.getValue(2, rowNumber)
 	
 	WebUI.setText(findTestObject('Auth/inputSignupUsername'), username)
 	
@@ -59,13 +59,13 @@ for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
 		
 		alertText = WebUI.getAlertText()
 		
-		WebUI.verifyMatch(alertText, GlobalVariable.emptyMessages, false)
+		WebUI.verifyMatch(alertText, GlobalVariable.messagesEmpty, false)
 		
 	} else {
 	
 		alertText = WebUI.getAlertText()
 		
-		WebUI.verifyMatch(alertText, GlobalVariable.userExistMessages, false)
+		WebUI.verifyMatch(alertText, GlobalVariable.messagesUserExist, false)
 	}
 	
 	WebUI.delay(5)

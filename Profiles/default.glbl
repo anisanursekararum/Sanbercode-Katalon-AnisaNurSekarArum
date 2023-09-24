@@ -22,22 +22,22 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>'Please fill out Username and Password.'</initValue>
-      <name>emptyMessages</name>
+      <name>messagesEmpty</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'This user already exist.'</initValue>
-      <name>userExistMessages</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>'Wrong password.'</initValue>
-      <name>wrongPass</name>
+      <name>messagesUserExist</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'User does not exist.'</initValue>
-      <name>userInvalid</name>
+      <name>messagesUseInvalid</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Wrong password.'</initValue>
+      <name>messagesWrongPass</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

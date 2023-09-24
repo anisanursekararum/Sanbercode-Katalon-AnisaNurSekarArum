@@ -53,4 +53,12 @@ WebUI.verifyElementText(findTestObject('Auth/titleNameUser'), expectedSuccess)
 
 WebUI.delay(5)
 
+WebUI.verifyElementClickable(findTestObject('Auth/menuLogout'))
+
+WebUI.click(findTestObject('Auth/menuLogout'))
+
+WebUI.verifyElementClickable(findTestObject('Auth/menuLogin'))
+
+WebUI.verifyElementClickable(findTestObject('Auth/menuSignup'))
+
 WebUI.closeBrowser()

@@ -23,9 +23,9 @@ WebUI.verifyElementClickable(findTestObject('Product/btnNexus6'))
 
 WebUI.click(findTestObject('Product/btnNexus6'))
 
-String detailURL = WebUI.getUrl()
+String currentURL = WebUI.getUrl()
 
-WebUI.verifyMatch(detailURL, ('.*' + urlContain) + '.*', true)
+WebUI.verifyMatch(currentURL, ('.*' + urlContain) + '.*', true)
 
 WebUI.verifyElementText(findTestObject('Product/tittleProductDetail'), nexusTitle)
 

@@ -39,4 +39,14 @@
       <initValue>'User does not exist.'</initValue>
       <name>userInvalid</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'userarum123'</initValue>
+      <name>usernameLogin</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'pass123'</initValue>
+      <name>passwordLogin</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

@@ -17,40 +17,15 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser(GlobalVariable.url)
+WebUI.callTestCase(findTestCase('Auth/TC Login Positive'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
+WebUI.verifyElementClickable(findTestObject('Menu/menuLogout'))
 
-WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
+WebUI.click(findTestObject('Menu/menuLogout'))
 
 WebUI.verifyElementClickable(findTestObject('Menu/menuLogin'))
 
-WebUI.click(findTestObject('Menu/menuLogin'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
 
-WebUI.verifyElementPresent(findTestObject('Auth/titleLogin'), 0)
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputLoginUsername'))
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputLoginPassword'))
-
-WebUI.setText(findTestObject('Auth/inputLoginUsername'), GlobalVariable.usernameLogin)
-
-WebUI.setText(findTestObject('Auth/inputLoginPassword'), GlobalVariable.passwordLogin)
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnLogin'))
-
-WebUI.click(findTestObject('Auth/btnLogin'))
-
-WebUI.delay(10)
-
-expectedSuccess = ('Welcome ' + GlobalVariable.usernameLogin)
-
-WebUI.verifyElementText(findTestObject('Object Repository/Auth/titleNameUser'), expectedSuccess)
-
-WebUI.delay(10)
-
+WebUI.closeBrowser()
 

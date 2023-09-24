@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC Login Negative Use Switch Case</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>0f00ff47-32fa-4cb3-bf29-70c0b0dfcf45</testCaseGuid>
+</TestCaseEntity>

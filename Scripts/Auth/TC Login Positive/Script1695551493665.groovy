@@ -23,9 +23,9 @@ WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeigh
 
 WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogin'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuLogin'))
 
-WebUI.click(findTestObject('Auth/menuLogin'))
+WebUI.click(findTestObject('Menu/menuLogin'))
 
 WebUI.verifyElementPresent(findTestObject('Auth/titleLogin'), 0)
 
@@ -47,18 +47,19 @@ WebUI.click(findTestObject('Auth/btnLogin'))
 
 WebUI.delay(10)
 
-expectedSuccess = "Welcome "+GlobalVariable.usernameLogin
+expectedSuccess = ('Welcome ' + GlobalVariable.usernameLogin)
 
 WebUI.verifyElementText(findTestObject('Object Repository/Auth/titleNameUser'), expectedSuccess)
 
 WebUI.delay(10)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogout'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuLogout'))
 
-WebUI.click(findTestObject('Auth/menuLogout'))
+WebUI.click(findTestObject('Menu/menuLogout'))
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogin'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuLogin'))
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuSignup'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
 
 WebUI.closeBrowser()
+

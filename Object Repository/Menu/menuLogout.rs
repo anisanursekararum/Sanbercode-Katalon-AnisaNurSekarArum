@@ -6,12 +6,11 @@
    <elementGuidId>32f697aa-1ba3-48e6-ac97-a16ee44640e2</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[@id='logout2']</value>
+         <key>BASIC</key>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>XPATH</key>
+         <value>//a[@id='logout2']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

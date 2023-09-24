@@ -43,4 +43,11 @@
          <variableId>3ee94502-c763-4400-8d2b-e81b199d1cbf</variableId>
       </variableLink>
    </testCaseLink>
+   <testCaseLink>
+      <guid>71ccc80b-7ee3-429c-baae-abcf75a6fd2e</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/Auth/TC Login Positive</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+   </testCaseLink>
 </TestSuiteEntity>

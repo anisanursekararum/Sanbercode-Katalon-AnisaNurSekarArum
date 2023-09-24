@@ -23,9 +23,9 @@ WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeigh
 
 WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuSignup'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
 
-WebUI.click(findTestObject('Auth/menuSignup'))
+WebUI.click(findTestObject('Menu/menuSignup'))
 
 WebUI.verifyElementPresent(findTestObject('Auth/titleSignup'), 0)
 
@@ -36,39 +36,35 @@ WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
 def sourceData = findTestData('Data Files/Auth/Signup')
 
 for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
-	
-	username = sourceData.getValue(1, rowNumber)
-	
-	password = sourceData.getValue(2, rowNumber)
-	
-	WebUI.setText(findTestObject('Auth/inputSignupUsername'), username)
-	
-	WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
-	
-	WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
-	
-	WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
-	
-	WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
-	
-	WebUI.click(findTestObject('Auth/btnSignup'))
-	
-	WebUI.waitForAlert(5)
-	
-	if(username.isEmpty() || password.isEmpty()){
-		
-		alertText = WebUI.getAlertText()
-		
-		WebUI.verifyMatch(alertText, GlobalVariable.messagesEmpty, false)
-		
-	} else {
-	
-		alertText = WebUI.getAlertText()
-		
-		WebUI.verifyMatch(alertText, GlobalVariable.messagesUserExist, false)
-	}
-	
-	WebUI.delay(5)
+    username = sourceData.getValue(1, rowNumber)
+
+    password = sourceData.getValue(2, rowNumber)
+
+    WebUI.setText(findTestObject('Auth/inputSignupUsername'), username)
+
+    WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
+
+    WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
+
+    WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
+
+    WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
+
+    WebUI.click(findTestObject('Auth/btnSignup'))
+
+    WebUI.waitForAlert(5)
+
+    if (username.isEmpty() || password.isEmpty()) {
+        alertText = WebUI.getAlertText()
+
+        WebUI.verifyMatch(alertText, GlobalVariable.messagesEmpty, false)
+    } else {
+        alertText = WebUI.getAlertText()
+
+        WebUI.verifyMatch(alertText, GlobalVariable.messagesUserExist, false)
+    }
+    
+    WebUI.delay(5)
 }
 
 WebUI.closeBrowser()

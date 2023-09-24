@@ -23,9 +23,9 @@ WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeigh
 
 WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogin'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuLogin'))
 
-WebUI.click(findTestObject('Auth/menuLogin'))
+WebUI.click(findTestObject('Menu/menuLogin'))
 
 WebUI.verifyElementPresent(findTestObject('Auth/titleLogin'), 0)
 
@@ -36,7 +36,6 @@ WebUI.verifyElementVisible(findTestObject('Auth/inputLoginPassword'))
 def sourceData = findTestData('Data Files/Auth/Login')
 
 for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
-	
     usernameLogin = sourceData.getValue(1, rowNumber)
 
     passwordLogin = sourceData.getValue(2, rowNumber)
@@ -56,30 +55,24 @@ for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
     WebUI.waitForAlert(5)
 
     switch (true) {
-		
         case usernameLogin.isEmpty() && passwordLogin.isEmpty():
-		
             alertText = WebUI.getAlertText()
 
             WebUI.verifyMatch(alertText, GlobalVariable.messagesEmpty, false)
 
-            break 
-			
-		case usernameLogin != usernameLogin:
-			
-			alertText = WebUI.getAlertText()
-		
-			WebUI.verifyMatch(alertText, GlobalVariable.messagesUseInvalid, false)
-			
-			break
-			
-		case passwordLogin != passwordLogin:
-			
-			alertText = WebUI.getAlertText()
-		
-			WebUI.verifyMatch(alertText, GlobalVariable.messagesWrongPass, false)
-			
-			break
+            break
+        case usernameLogin != usernameLogin:
+            alertText = WebUI.getAlertText()
+
+            WebUI.verifyMatch(alertText, GlobalVariable.messagesUseInvalid, false)
+
+            break
+        case passwordLogin != passwordLogin:
+            alertText = WebUI.getAlertText()
+
+            WebUI.verifyMatch(alertText, GlobalVariable.messagesWrongPass, false)
+
+            break
     }
     
     WebUI.delay(5)

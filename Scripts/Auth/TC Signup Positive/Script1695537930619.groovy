@@ -25,9 +25,9 @@ WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeigh
 
 WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuSignup'))
+WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
 
-WebUI.click(findTestObject('Auth/menuSignup'))
+WebUI.click(findTestObject('Menu/menuSignup'))
 
 WebUI.verifyElementPresent(findTestObject('Auth/titleSignup'), 0)
 
@@ -47,7 +47,7 @@ WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
 
 WebUI.click(findTestObject('Auth/btnSignup'))
 
-WebUI.waitForAlert(5)
+WebUI.waitForAlert(10)
 
 alertText = WebUI.getAlertText()
 

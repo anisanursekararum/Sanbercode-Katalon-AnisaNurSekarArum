@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC Product Detail</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>db36b85e-1c1a-4495-ae49-7bacbdff0eec</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>cf28aca2-092b-4170-b471-75cdf8a2d2cd</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a5d0ff4b-f686-4dcb-a617-4149c384bbde</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>d2f8c656-4212-41ac-8daf-c538a6e1c2b2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>862d6cdb-60cc-4a3c-98c1-fae2e668e526</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>bad86ab6-ee2d-41fe-86f2-dcd951a61384</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Nexus 6'</defaultValue>
+      <description></description>
+      <id>cf28aca2-092b-4170-b471-75cdf8a2d2cd</id>
+      <masked>false</masked>
+      <name>nexusTitle</name>
+   </variable>
+   <variable>
+      <defaultValue>650</defaultValue>
+      <description></description>
+      <id>a5d0ff4b-f686-4dcb-a617-4149c384bbde</id>
+      <masked>false</masked>
+      <name>nexusPrice</name>
+   </variable>
+   <variable>
+      <defaultValue>'Product description'</defaultValue>
+      <description></description>
+      <id>d2f8c656-4212-41ac-8daf-c538a6e1c2b2</id>
+      <masked>false</masked>
+      <name>productDesc</name>
+   </variable>
+   <variable>
+      <defaultValue>'The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.'</defaultValue>
+      <description></description>
+      <id>862d6cdb-60cc-4a3c-98c1-fae2e668e526</id>
+      <masked>false</masked>
+      <name>nexusProdDesc</name>
+   </variable>
+   <variable>
+      <defaultValue>'idp'</defaultValue>
+      <description></description>
+      <id>bad86ab6-ee2d-41fe-86f2-dcd951a61384</id>
+      <masked>false</masked>
+      <name>urlContain</name>
+   </variable>
+</TestCaseEntity>

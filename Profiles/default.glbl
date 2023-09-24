@@ -19,4 +19,24 @@
       <initValue>880</initValue>
       <name>viewportHeight</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Please fill out Username and Password.'</initValue>
+      <name>emptyMessages</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'This user already exist.'</initValue>
+      <name>userExistMessages</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Wrong password.'</initValue>
+      <name>wrongPass</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'User does not exist.'</initValue>
+      <name>userInvalid</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

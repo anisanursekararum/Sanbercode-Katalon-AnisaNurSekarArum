@@ -17,8 +17,6 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-def randomNumber = org.apache.commons.lang.RandomStringUtils.randomNumeric(3)
-
 WebUI.openBrowser(GlobalVariable.url)
 
 WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
@@ -35,23 +33,43 @@ WebUI.verifyElementVisible(findTestObject('Auth/inputSignupUsername'))
 
 WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
 
-WebUI.setText(findTestObject('Auth/inputSignupUsername'), username + randomNumber)
+def sourceData = findTestData('Data Files/Auth/SignUp')
 
-WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
-
-WebUI.click(findTestObject('Auth/btnSignup'))
-
-WebUI.waitForAlert(5)
-
-alertText = WebUI.getAlertText()
-
-WebUI.verifyMatch(alertText, successSignup, false)
+for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
+	
+	username = sourceData.getValue(1, rowNumber)
+	
+	password = sourceData.getValue(1, rowNumber)
+	
+	WebUI.setText(findTestObject('Auth/inputSignupUsername'), username)
+	
+	WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
+	
+	WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
+	
+	WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
+	
+	WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
+	
+	WebUI.click(findTestObject('Auth/btnSignup'))
+	
+	WebUI.waitForAlert(5)
+	
+	if(username.isEmpty() || password.isEmpty()){
+		
+		alertText = WebUI.getAlertText()
+		
+		WebUI.verifyMatch(alertText, GlobalVariable.emptyMessages, false)
+		
+	} else {
+	
+		alertText = WebUI.getAlertText()
+		
+		WebUI.verifyMatch(alertText, GlobalVariable.userExistMessages, false)
+	}
+	
+	WebUI.delay(5)
+}
 
 WebUI.closeBrowser()
 

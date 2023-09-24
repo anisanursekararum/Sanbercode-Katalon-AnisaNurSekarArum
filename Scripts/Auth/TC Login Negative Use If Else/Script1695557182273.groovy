@@ -33,32 +33,50 @@ WebUI.verifyElementVisible(findTestObject('Auth/inputLoginUsername'))
 
 WebUI.verifyElementVisible(findTestObject('Auth/inputLoginPassword'))
 
-WebUI.setText(findTestObject('Auth/inputLoginUsername'), GlobalVariable.usernameLogin)
+def sourceData = findTestData('Data Files/Auth/Login')
 
-WebUI.setText(findTestObject('Auth/inputLoginPassword'), GlobalVariable.passwordLogin)
+for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
+	
+    usernameLogin = sourceData.getValue(1, rowNumber)
 
-WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
+    passwordLogin = sourceData.getValue(2, rowNumber)
 
-WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
+    WebUI.setText(findTestObject('Auth/inputLoginUsername'), usernameLogin)
 
-WebUI.verifyElementClickable(findTestObject('Auth/btnLogin'))
+    WebUI.setText(findTestObject('Auth/inputLoginPassword'), passwordLogin)
 
-WebUI.click(findTestObject('Auth/btnLogin'))
+    WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
 
-WebUI.delay(10)
+    WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
 
-expectedSuccess = "Welcome "+GlobalVariable.usernameLogin
+    WebUI.verifyElementClickable(findTestObject('Auth/btnLogin'))
 
-WebUI.verifyElementText(findTestObject('Object Repository/Auth/titleNameUser'), expectedSuccess)
+    WebUI.click(findTestObject('Auth/btnLogin'))
 
-WebUI.delay(10)
+    WebUI.waitForAlert(10)
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogout'))
+    if (usernameLogin.isEmpty() || passwordLogin.isEmpty()) {
+		
+        alertText = WebUI.getAlertText()
 
-WebUI.click(findTestObject('Auth/menuLogout'))
+        WebUI.verifyMatch(alertText, GlobalVariable.messagesEmpty, false)
+		
+    } else if (usernameLogin != GlobalVariable.usernameLogin) {
+		
+        alertText = WebUI.getAlertText()
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuLogin'))
+        WebUI.verifyMatch(alertText, GlobalVariable.messagesUseInvalid, false)
+		
+    } else if (passwordLogin != GlobalVariable.passwordLogin) {
+		
+        alertText = WebUI.getAlertText()
 
-WebUI.verifyElementClickable(findTestObject('Auth/menuSignup'))
+        WebUI.verifyMatch(alertText, GlobalVariable.messagesWrongPass, false)
+		
+    } 
+    
+    WebUI.delay(5)
+}
 
 WebUI.closeBrowser()
+

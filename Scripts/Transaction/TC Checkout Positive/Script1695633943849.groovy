@@ -16,15 +16,47 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.By as By
+import com.kms.katalon.core.testobject.ConditionType as ConditionType
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import org.openqa.selenium.WebElement as WebElement
 
 WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'], 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.verifyElementText(findTestObject('Cart/titleTotal'), titleTotal)
 
+def TestObject = findTestObject('Cart/tableRowPrice')
+
+def thirdTdElements = WebUI.findWebElement(TestObject)
+
+def sum = 0
+
+for (def tdElement : thirdTdElements) {
+    def cellText = tdElement.getText()
+
+    println('Cell Text: ' + cellText)
+
+    def numericValues = cellText.findAll('\\d+').collect({it.toInteger()})
+
+    println('Numeric Values: ' + numericValues)
+
+    sum += numericValues.sum()
+}
+
+WebUI.comment('The sum of values in the table is: ' + sum)
+
+def sumText = sum.toString()
+
+WebUI.verifyElementText(findTestObject('Cart/totalPrice'), sumText)
+
 WebUI.verifyElementClickable(findTestObject('Cart/btnPlaceOrder'))
 
 WebUI.click(findTestObject('Cart/btnPlaceOrder'))
+
+def totalPrice = 'Total: '+sumText
+
+WebUI.verifyElementText(findTestObject('Transaction/modalTotalPrice'), totalPrice)
 
 WebUI.verifyElementText(findTestObject('Transaction/modalLabelName'), lblName)
 

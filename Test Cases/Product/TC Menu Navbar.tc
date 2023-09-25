@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC Menu Navbar</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>905cafaa-b679-4f0b-a69d-3cc6345dec30</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a444ebf3-bee3-43d5-9854-c9211da59781</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85d350e2-86f4-46c9-93be-56d6f79c7fb0</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'index'</defaultValue>
+      <description></description>
+      <id>a444ebf3-bee3-43d5-9854-c9211da59781</id>
+      <masked>false</masked>
+      <name>homeURL</name>
+   </variable>
+   <variable>
+      <defaultValue>'cart'</defaultValue>
+      <description></description>
+      <id>85d350e2-86f4-46c9-93be-56d6f79c7fb0</id>
+      <masked>false</masked>
+      <name>cartURL</name>
+   </variable>
+</TestCaseEntity>

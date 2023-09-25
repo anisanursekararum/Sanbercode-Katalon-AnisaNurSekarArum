@@ -119,4 +119,24 @@
       <initValue>'Year:'</initValue>
       <name>lblYear</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Nexus 6'</initValue>
+      <name>nexusTitle</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'650'</initValue>
+      <name>nexusPrice</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Product description'</initValue>
+      <name>productDesc</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.'</initValue>
+      <name>nexusProdDesc</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

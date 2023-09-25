@@ -16,51 +16,22 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+
 import org.openqa.selenium.By as By
 import com.kms.katalon.core.testobject.ConditionType as ConditionType
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import org.openqa.selenium.WebElement as WebElement
 
-WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'], 
-    FailureHandling.STOP_ON_FAILURE)
-
-WebUI.verifyElementText(findTestObject('Cart/titleTotal'), GlobalVariable.titleTotal)
-
-def TestObject = findTestObject('Cart/tableRowPrice')
-
-def thirdTdElements = WebUI.findWebElement(TestObject)
-
-def sum = 0
-
-for (def tdElement : thirdTdElements) {
-    def cellText = tdElement.getText()
-
-    println('Cell Text: ' + cellText)
-
-    def numericValues = cellText.findAll('\\d+').collect({it.toInteger()})
-
-    println('Numeric Values: ' + numericValues)
-
-    sum += numericValues.sum()
-}
-
-WebUI.comment('The sum of values in the table is: ' + sum)
-
-def sumText = sum.toString()
-
-WebUI.verifyElementText(findTestObject('Cart/totalPrice'), sumText)
+WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'],
+	FailureHandling.STOP_ON_FAILURE)
 
 WebUI.verifyElementClickable(findTestObject('Cart/btnPlaceOrder'))
 
 WebUI.click(findTestObject('Cart/btnPlaceOrder'))
 
-def totalPrice = 'Total: '+sumText
-
-WebUI.verifyElementText(findTestObject('Transaction/modalTotalPrice'), totalPrice)
+WebUI.delay(5)
 
 WebUI.verifyElementText(findTestObject('Transaction/modalLabelName'), GlobalVariable.lblName)
-
-WebUI.setText(findTestObject('Transaction/modalInputName'), GlobalVariable.usernameLogin)
 
 WebUI.verifyElementText(findTestObject('Transaction/modalLabelCountry'), GlobalVariable.lblCountry)
 
@@ -71,8 +42,6 @@ WebUI.verifyElementText(findTestObject('Transaction/modalLabelCity'), GlobalVari
 WebUI.setText(findTestObject('Transaction/modalInputCity'), GlobalVariable.checkoutCity)
 
 WebUI.verifyElementText(findTestObject('Transaction/modalLabelCC'), GlobalVariable.lblCC)
-
-WebUI.setText(findTestObject('Transaction/modalInputCC'), GlobalVariable.checkoutCC)
 
 WebUI.verifyElementText(findTestObject('Transaction/modalLabelMonth'), GlobalVariable.lblMonth)
 
@@ -90,15 +59,10 @@ WebUI.verifyElementClickable(findTestObject('Transaction/btnPurchase'))
 
 WebUI.click(findTestObject('Transaction/btnPurchase'))
 
-WebUI.verifyElementVisible(findTestObject('Transaction/labelSuccessPurchase'))
+WebUI.waitForAlert(10)
 
-WebUI.verifyElementText(findTestObject('Transaction/labelSuccessPurchase'), GlobalVariable.messagesSuccessPurchase)
+alertText = WebUI.getAlertText()
 
-WebUI.verifyElementVisible(findTestObject('Transaction/labelDetailSuccessPurchase'))
-
-WebUI.verifyElementClickable(findTestObject('Transaction/btnOK'))
-
-WebUI.click(findTestObject('Transaction/btnOK'))
+WebUI.verifyMatch(alertText, GlobalVariable.messagesCheckoutMandatoryEmpty, false)
 
 WebUI.closeBrowser()
-

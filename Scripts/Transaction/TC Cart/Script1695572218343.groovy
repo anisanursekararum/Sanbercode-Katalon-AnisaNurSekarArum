@@ -21,15 +21,17 @@ WebUI.callTestCase(findTestCase('Product/TC Product Detail'), [('nexusTitle') : 
         , ('nexusProdDesc') : 'The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.'
         , ('urlContain') : 'idp'], FailureHandling.STOP_ON_FAILURE)
 
+WebUI.delay(5)
+
 WebUI.click(findTestObject('Product/btnAddToCart'))
 
-WebUI.waitForAlert(10)
+WebUI.waitForAlert(30)
 
 alertText = WebUI.getAlertText()
 
 WebUI.verifyMatch(alertText, successAddToCart, false)
 
-WebUI.waitForAlert(10)
+WebUI.waitForAlert(30)
 
 WebUI.click(findTestObject('Menu/menuCart'))
 
@@ -38,4 +40,3 @@ String currentURL = WebUI.getUrl()
 WebUI.verifyMatch(currentURL, ('.*' + urlContain) + '.*', true)
 
 WebUI.verifyElementText(findTestObject('Cart/titleCart'), 'Products')
-

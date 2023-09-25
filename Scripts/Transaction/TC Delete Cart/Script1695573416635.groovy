@@ -16,42 +16,35 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.NoSuchElementException as StepErrorException
 
-def randomNumber = org.apache.commons.lang.RandomStringUtils.randomNumeric(3)
+WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'], 
+    FailureHandling.STOP_ON_FAILURE)
 
-WebUI.openBrowser(GlobalVariable.url)
+WebUI.delay(10)
 
-WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
+WebUI.verifyElementClickable(findTestObject('Cart/btnDelete'))
 
-WebUI.verifyElementPresent(findTestObject('generalObject/logo'), 0)
 
-WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
+boolean isElementFound = true
 
-WebUI.click(findTestObject('Menu/menuSignup'))
+while (isElementFound) {
+	
+	try {
 
-WebUI.verifyElementPresent(findTestObject('Auth/titleSignup'), 0)
+		WebUI.waitForElementVisible(findTestObject('Object Repository/Cart/btnDelete'), 10)
+		
+		WebUI.click(findTestObject('Object Repository/Cart/btnDelete'))
+				
+	} catch (Exception  e) {
 
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupUsername'))
+		isElementFound = false
+		
+	}
+	
+}
 
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
-
-WebUI.setText(findTestObject('Auth/inputSignupUsername'), username + randomNumber)
-
-WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnCloseCorner'))
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnClose'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
-
-WebUI.click(findTestObject('Auth/btnSignup'))
-
-WebUI.waitForAlert(10)
-
-alertText = WebUI.getAlertText()
-
-WebUI.verifyMatch(alertText, successSignup, false)
+WebUI.comment('Element not found, exiting the loop.')
 
 WebUI.closeBrowser()
 

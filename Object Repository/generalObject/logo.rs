@@ -6,12 +6,12 @@
    <elementGuidId>8031517d-69fe-4b46-89d3-2505d1ac939c</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[@id='nava']</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#nava</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//a[@id='nava']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -21,7 +21,7 @@ WebUI.openBrowser(GlobalVariable.url)
 
 WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
 
-WebUI.verifyElementPresent(findTestObject('Auth/logo'), 0)
+WebUI.verifyElementPresent(findTestObject('generalObject/logo'), 0)
 
 WebUI.verifyElementClickable(findTestObject('Menu/menuLogin'))
 
@@ -44,9 +44,9 @@ for (def rowNumber = 1; rowNumber <= sourceData.getRowNumbers(); rowNumber++) {
 
     WebUI.setText(findTestObject('Auth/inputLoginPassword'), passwordLogin)
 
-    WebUI.verifyElementClickable(findTestObject('Auth/btnCloseCorner'))
+    WebUI.verifyElementClickable(findTestObject('generalObject/btnCloseCorner'))
 
-    WebUI.verifyElementClickable(findTestObject('Auth/btnClose'))
+    WebUI.verifyElementClickable(findTestObject('generalObject/btnClose'))
 
     WebUI.verifyElementClickable(findTestObject('Auth/btnLogin'))
 

@@ -41,6 +41,16 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
+      <initValue>'Thank you for your purchase!'</initValue>
+      <name>messagesSuccessPurchase</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Please fill out Name and Creditcard.'</initValue>
+      <name>messagesCheckoutMandatoryEmpty</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
       <initValue>'userarum123'</initValue>
       <name>usernameLogin</name>
    </GlobalVariableEntity>
@@ -48,5 +58,65 @@
       <description></description>
       <initValue>'pass123'</initValue>
       <name>passwordLogin</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Indonesia'</initValue>
+      <name>checkoutCountry</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Kediri'</initValue>
+      <name>checkoutCity</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'1233 4567 8889 0634'</initValue>
+      <name>checkoutCC</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'12'</initValue>
+      <name>checkoutMonth</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'2029'</initValue>
+      <name>checkoutYear</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Total'</initValue>
+      <name>titleTotal</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Name:'</initValue>
+      <name>lblName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Country:'</initValue>
+      <name>lblCountry</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'City:'</initValue>
+      <name>lblCity</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Credit card:'</initValue>
+      <name>lblCC</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Month:'</initValue>
+      <name>lblMonth</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'Year:'</initValue>
+      <name>lblYear</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

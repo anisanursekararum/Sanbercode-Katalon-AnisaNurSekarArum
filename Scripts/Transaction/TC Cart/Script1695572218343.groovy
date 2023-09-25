@@ -17,41 +17,26 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-def randomNumber = org.apache.commons.lang.RandomStringUtils.randomNumeric(3)
+WebUI.callTestCase(findTestCase('Product/TC Product Detail'), [('nexusTitle') : 'Nexus 6', ('nexusPrice') : 650, ('productDesc') : 'Product description'
+        , ('nexusProdDesc') : 'The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM.'
+        , ('urlContain') : 'idp'], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.openBrowser(GlobalVariable.url)
+WebUI.delay(5)
 
-WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
+WebUI.click(findTestObject('Product/btnAddToCart'))
 
-WebUI.verifyElementPresent(findTestObject('generalObject/logo'), 0)
-
-WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
-
-WebUI.click(findTestObject('Menu/menuSignup'))
-
-WebUI.verifyElementPresent(findTestObject('Auth/titleSignup'), 0)
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupUsername'))
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
-
-WebUI.setText(findTestObject('Auth/inputSignupUsername'), username + randomNumber)
-
-WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnCloseCorner'))
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnClose'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
-
-WebUI.click(findTestObject('Auth/btnSignup'))
-
-WebUI.waitForAlert(10)
+WebUI.waitForAlert(30)
 
 alertText = WebUI.getAlertText()
 
-WebUI.verifyMatch(alertText, successSignup, false)
+WebUI.verifyMatch(alertText, successAddToCart, false)
 
-WebUI.closeBrowser()
+WebUI.waitForAlert(30)
 
+WebUI.click(findTestObject('Menu/menuCart'))
+
+String currentURL = WebUI.getUrl()
+
+WebUI.verifyMatch(currentURL, ('.*' + urlContain) + '.*', true)
+
+WebUI.verifyElementText(findTestObject('Cart/titleCart'), 'Products')

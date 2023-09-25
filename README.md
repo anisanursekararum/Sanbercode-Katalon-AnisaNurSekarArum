@@ -1,3 +1,7 @@
 # Sanbercode-Katalon-AnisaNurSekarArum
 
-inprogress
+website for testing : https://www.demoblaze.com
+username : userarum123
+password : pass123
+
+

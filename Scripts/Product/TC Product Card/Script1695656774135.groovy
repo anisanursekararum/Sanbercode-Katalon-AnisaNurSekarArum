@@ -17,27 +17,25 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.callTestCase(findTestCase('Auth/TC Login Positive'), [:], FailureHandling.STOP_ON_FAILURE)
+WebUI.openBrowser(GlobalVariable.url)
 
-WebUI.verifyElementClickable(findTestObject('Product/btnNexus6'))
+WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
 
-WebUI.click(findTestObject('Product/btnNexus6'))
+WebUI.verifyElementVisible(findTestObject('Product/cardImg'))
 
-String currentURL = WebUI.getUrl()
+WebUI.verifyElementVisible(findTestObject('Product/cardTitle'))
 
-WebUI.verifyMatch(currentURL, ('.*' + urlContain) + '.*', true)
+WebUI.verifyElementText(findTestObject('Product/cardTitle'), GlobalVariable.nexusTitle)
 
-WebUI.verifyElementText(findTestObject('Product/tittleProductDetail'), GlobalVariable.nexusTitle)
+WebUI.verifyElementVisible(findTestObject('Product/cardPrice'))
 
-String price = WebUI.getText(findTestObject('Product/priceProductDetail'))
+String pricing = '$' + GlobalVariable.nexusPrice
 
-WebUI.verifyMatch(price, ('.*' + GlobalVariable.nexusPrice) + '.*', true)
+WebUI.verifyElementText(findTestObject('Product/cardPrice'), pricing)
 
-WebUI.verifyElementText(findTestObject('Product/titleProductDesc'), GlobalVariable.productDesc)
+WebUI.verifyElementVisible(findTestObject('Product/cardDesc'))
 
-WebUI.verifyElementText(findTestObject('Product/productDesc'), GlobalVariable.nexusProdDesc)
+WebUI.verifyElementText(findTestObject('Product/cardDesc'), GlobalVariable.nexusProdDesc)
 
-WebUI.verifyElementVisible(findTestObject('Product/imgProducDetail'))
-
-WebUI.verifyElementClickable(findTestObject('Product/btnAddToCart'))
+WebUI.closeBrowser()
 

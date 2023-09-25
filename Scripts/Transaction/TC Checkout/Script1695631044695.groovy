@@ -17,41 +17,6 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-def randomNumber = org.apache.commons.lang.RandomStringUtils.randomNumeric(3)
-
-WebUI.openBrowser(GlobalVariable.url)
-
-WebUI.setViewPortSize(GlobalVariable.viewportWidth, GlobalVariable.viewportHeight)
-
-WebUI.verifyElementPresent(findTestObject('generalObject/logo'), 0)
-
-WebUI.verifyElementClickable(findTestObject('Menu/menuSignup'))
-
-WebUI.click(findTestObject('Menu/menuSignup'))
-
-WebUI.verifyElementPresent(findTestObject('Auth/titleSignup'), 0)
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupUsername'))
-
-WebUI.verifyElementVisible(findTestObject('Auth/inputSignupPassword'))
-
-WebUI.setText(findTestObject('Auth/inputSignupUsername'), username + randomNumber)
-
-WebUI.setText(findTestObject('Auth/inputSignupPassword'), password)
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnCloseCorner'))
-
-WebUI.verifyElementClickable(findTestObject('generalObject/btnClose'))
-
-WebUI.verifyElementClickable(findTestObject('Auth/btnSignup'))
-
-WebUI.click(findTestObject('Auth/btnSignup'))
-
-WebUI.waitForAlert(10)
-
-alertText = WebUI.getAlertText()
-
-WebUI.verifyMatch(alertText, successSignup, false)
-
-WebUI.closeBrowser()
+WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'], 
+    FailureHandling.STOP_ON_FAILURE)
 

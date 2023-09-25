@@ -6,12 +6,12 @@
    <elementGuidId>80303fdf-5ed0-4cd7-bd43-c37a810ae997</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//div[@id='logInModal']/div/div/div/button/span</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>#logInModal > div.modal-dialog > div.modal-content > div.modal-header > button.close > span</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='logInModal']/div/div/div/button/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

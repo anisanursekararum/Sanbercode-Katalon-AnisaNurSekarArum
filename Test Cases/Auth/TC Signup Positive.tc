@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC Signup Positive</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>d59e9752-1704-4cad-ae4b-3e32f6d1b1c5</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>67936378-a686-46c7-b886-404bc3f391ca</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e00a0e05-5ba6-4ff6-aabf-36ab9c0f4c81</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3ee94502-c763-4400-8d2b-e81b199d1cbf</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'arum'</defaultValue>
+      <description></description>
+      <id>67936378-a686-46c7-b886-404bc3f391ca</id>
+      <masked>false</masked>
+      <name>username</name>
+   </variable>
+   <variable>
+      <defaultValue>'pass123'</defaultValue>
+      <description></description>
+      <id>e00a0e05-5ba6-4ff6-aabf-36ab9c0f4c81</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>'Sign up successful.'</defaultValue>
+      <description></description>
+      <id>3ee94502-c763-4400-8d2b-e81b199d1cbf</id>
+      <masked>false</masked>
+      <name>successSignup</name>
+   </variable>
+</TestCaseEntity>

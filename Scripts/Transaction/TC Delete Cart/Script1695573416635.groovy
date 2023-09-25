@@ -16,6 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import org.openqa.selenium.NoSuchElementException as StepErrorException
 
 WebUI.callTestCase(findTestCase('Transaction/TC Cart'), [('successAddToCart') : 'Product added.', ('urlContain') : 'cart'], 
     FailureHandling.STOP_ON_FAILURE)
@@ -24,19 +25,26 @@ WebUI.delay(10)
 
 WebUI.verifyElementClickable(findTestObject('Cart/btnDelete'))
 
-//WebUI.click(findTestObject('Cart/btnDelete'))
 
-while (deleteButtonFound = true) {
+boolean isElementFound = true
+
+while (isElementFound) {
 	
-	if(WebUI.verifyElementPresent(findTestObject('Cart/btnDelete'), 0, FailureHandling.OPTIONAL)) {
+	try {
+
+		WebUI.waitForElementVisible(findTestObject('Object Repository/Cart/btnDelete'), 10)
 		
-		WebUI.click(findTestObject('Cart/btnDelete'))
-		
-	}else {
-		
-		deleteButtonFound = false
+		WebUI.click(findTestObject('Object Repository/Cart/btnDelete'))
+				
+	} catch (Exception  e) {
+
+		isElementFound = false
 		
 	}
 	
 }
+
+WebUI.comment('Element not found, exiting the loop.')
+
+WebUI.closeBrowser()
 

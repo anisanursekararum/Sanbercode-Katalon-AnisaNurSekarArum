@@ -1,7 +1,7 @@
 # Sanbercode-Katalon-AnisaNurSekarArum
 
-Website for testing: [Demoblaze](https://www.demoblaze.com)
-Username: userarum123
+Website for testing: [Demoblaze](https://www.demoblaze.com)  
+Username: userarum123  
 Password: pass123
 
 ## Scenario
